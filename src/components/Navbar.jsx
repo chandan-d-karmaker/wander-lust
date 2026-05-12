@@ -4,14 +4,14 @@ import React from 'react';
 
 const Navbar = () => {
     return (
-        <div className=''>
+        <div className='shadow-sm'>
             <nav className='flex justify-between items-center p-5'>
 
                 <ul className='flex gap-4'>
                     <li><Link href={'/'}>Home</Link></li>
                     <li><Link href={'/destination'}>Destination</Link></li>
                     <li><Link href={'/booking'}>My Bookings</Link></li>
-                    <li><Link href={'/admin'}>Admin</Link></li>
+                    <li><Link href={'/add-destination'}>Add Destination</Link></li>
                 </ul>
 
                 <div>
