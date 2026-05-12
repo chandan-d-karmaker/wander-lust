@@ -5,11 +5,22 @@ import React from 'react';
 const AddDestinationPage = () => {
 
 
-  const onSubmit = e =>{
+  const onSubmit = async (e) =>{
     e.preventDefault();
     const formData = new FormData(e.currentTarget)
     const destination = Object.fromEntries(formData.entries());
     console.log(destination);
+
+    const res = await fetch('http://localhost:5000/destination', {
+      method: 'POST',
+      headers: {
+        'content-type':'application/json'
+      },
+      body: JSON.stringify(destination)
+       
+    })
+    const data = res.json;
+    console.log(data)
   }
 
   return (
