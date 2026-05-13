@@ -1,7 +1,12 @@
+import { Button } from '@heroui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { CiLocationOn } from 'react-icons/ci';
 import { SlCalender } from 'react-icons/sl';
+import { FaRegEdit } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+import { EditModal } from '@/components/EditModal';
 
 const DestinationDetailsPage = async ({ params }) => {
 
@@ -9,10 +14,16 @@ const DestinationDetailsPage = async ({ params }) => {
     const res = await fetch(`http://localhost:5000/destination/${id}`);
     const destination = await res.json();
     const { imageUrl, price, destinationName, duration, country, description } = destination;
-    console.log(destination);
+    // console.log(destination);
     return (
         <div className='w-4/5 mx-auto my-20'>
-            <Image src={imageUrl} alt='thubnail' width={500} height={500} className='mx-auto w-full'></Image>
+            <div className='flex justify-between items-center my-4'>
+                <Link href={'/destinations'}>
+                    <Button variant='ghost' className='flex gap-1 items-center'><FaArrowLeft /> Go back</Button>
+                </Link>
+                <EditModal destination={destination}/>
+            </div>
+            <Image src={imageUrl} alt='thubnail' width={500} height={500} className='mx-auto w-full h-120 object-cover'></Image>
 
             <div className='flex gap-1 items-center'>
                 <CiLocationOn />

@@ -15,7 +15,7 @@ const DestinationCard = ({ destination }) => {
 
             {/* image */}
             <div className='relative'>
-                <Image src={imageUrl} alt='thumbnail' width={400} height={400}></Image>
+                <Image src={imageUrl} alt='thumbnail' className='w-full' width={400} height={400}></Image>
                 <div>
 
                 </div>
