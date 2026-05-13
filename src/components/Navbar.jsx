@@ -20,8 +20,8 @@ const Navbar = () => {
 
                 <ul className='flex gap-4'>
                     <li><Link href={'/profile'}>Profile</Link></li>
-                    <li><Link href={'/login'}>login</Link></li>
-                    <li><Link href={'/sign-up'}>Sign Up</Link></li>
+                    <li><Link href={'/auth/login'}>login</Link></li>
+                    <li><Link href={'/auth/signup'}>Sign Up</Link></li>
                 </ul>
 
             </nav>
