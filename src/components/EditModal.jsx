@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, FieldError, Input, Label, ListBox, Modal, Surface, TextArea, TextField, Select } from "@heroui/react";
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 import { FaRegEdit } from "react-icons/fa";
 
 export function EditModal({ destination }) {

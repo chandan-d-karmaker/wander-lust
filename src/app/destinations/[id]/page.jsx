@@ -7,6 +7,8 @@ import { SlCalender } from 'react-icons/sl';
 import { FaRegEdit } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { EditModal } from '@/components/EditModal';
+import { DeleteAlert } from '@/components/DeleteAlert';
+
 
 const DestinationDetailsPage = async ({ params }) => {
 
@@ -21,7 +23,10 @@ const DestinationDetailsPage = async ({ params }) => {
                 <Link href={'/destinations'}>
                     <Button variant='ghost' className='flex gap-1 items-center'><FaArrowLeft /> Go back</Button>
                 </Link>
-                <EditModal destination={destination}/>
+                <div className='flex gap-2 items-center'>
+                    <EditModal destination={destination} />
+                    <DeleteAlert destination={destination} />
+                </div>
             </div>
             <Image src={imageUrl} alt='thubnail' width={500} height={500} className='mx-auto w-full h-120 object-cover'></Image>
 
