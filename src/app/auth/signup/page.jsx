@@ -17,25 +17,31 @@ import { redirect } from 'next/navigation';
 
 const SignUpPage = () => {
 
-    const onSubmit = async (e) =>{
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
         const user = Object.fromEntries(formData.entries());
 
-        const {data, error} = await authClient.signUp.email({
+        const { data, error } = await authClient.signUp.email({
             ...user
         })
 
-        console.log('signup data: ', {data, error});
+        console.log('signup data: ', { data, error });
 
-        if(data){
+        if (data) {
             redirect('/');
 
         }
-        if(error){
+        if (error) {
             alert(error);
         }
+    }
+
+    const handleGoogleSignin = async () => {
+        await authClient.signIn.social({
+            provider: "google"
+        })
     }
 
     return (
@@ -106,7 +112,7 @@ const SignUpPage = () => {
                     <Separator />
                 </div>
                 <div>
-                    <Button variant="outline" className={'w-full rounded-none'}><FcGoogle /> Sign in with Google</Button>
+                    <Button onClick={handleGoogleSignin} variant="outline" className={'w-full rounded-none'}><FcGoogle /> Sign in with Google</Button>
                 </div>
             </Card>
         </div>
