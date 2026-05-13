@@ -8,6 +8,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { EditModal } from '@/components/EditModal';
 import { DeleteAlert } from '@/components/DeleteAlert';
+import BookingCard from '@/components/BookingCard';
 
 
 const DestinationDetailsPage = async ({ params }) => {
@@ -35,18 +36,19 @@ const DestinationDetailsPage = async ({ params }) => {
                 <p>{country}</p>
             </div>
             <div className='flex items-center justify-between'>
-                <div className='space-y-4'>
-                    <div>
-                        <h1 className='text-xl font-bold'>{destinationName}</h1>
-                    </div>
-                    <div className='flex gap-1 items-center'>
-                        <SlCalender />
-                        <p>{duration}</p>
-                    </div>
-                </div>
                 <div>
-                    <h1 className='text-lg font-semibold'>${price}</h1>
+                    <div className='space-y-4'>
+                        <div>
+                            <h1 className='text-xl font-bold'>{destinationName}</h1>
+                        </div>
+                        <div className='flex gap-1 items-center'>
+                            <SlCalender />
+                            <p>{duration}</p>
+                        </div>
+                    </div>
+
                 </div>
+                <BookingCard destination={destination} />
 
             </div>
 
