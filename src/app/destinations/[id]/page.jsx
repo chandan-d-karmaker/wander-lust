@@ -20,6 +20,8 @@ const DestinationDetailsPage = async ({ params }) => {
     // console.log(destination);
     return (
         <div className='w-4/5 mx-auto my-20'>
+
+            {/* top section */}
             <div className='flex justify-between items-center my-4'>
                 <Link href={'/destinations'}>
                     <Button variant='ghost' className='flex gap-1 items-center'><FaArrowLeft /> Go back</Button>
@@ -29,15 +31,19 @@ const DestinationDetailsPage = async ({ params }) => {
                     <DeleteAlert destination={destination} />
                 </div>
             </div>
+
+            {/* Thumbnail */}
             <Image src={imageUrl} alt='thubnail' width={500} height={500} className='mx-auto w-full h-120 object-cover'></Image>
 
-            <div className='flex gap-1 items-center'>
-                <CiLocationOn />
-                <p>{country}</p>
-            </div>
-            <div className='flex items-center justify-between'>
+            {/* details */}
+            <div className='flex mt-5 justify-between'>
+                {/* left side */}
                 <div>
-                    <div className='space-y-4'>
+                    <div className='flex gap-1 items-center'>
+                        <CiLocationOn />
+                        <p>{country}</p>
+                    </div>
+                    <div className='space-y-2'>
                         <div>
                             <h1 className='text-xl font-bold'>{destinationName}</h1>
                         </div>
@@ -45,18 +51,15 @@ const DestinationDetailsPage = async ({ params }) => {
                             <SlCalender />
                             <p>{duration}</p>
                         </div>
+                        <div>
+                            {description}
+                        </div>
                     </div>
-
                 </div>
+
+                {/* right side */}
                 <BookingCard destination={destination} />
-
             </div>
-
-            <div>
-                {description}
-            </div>
-
-
 
         </div>
     );
