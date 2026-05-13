@@ -3,6 +3,7 @@ import "./globals.css";
 import Banner from "@/components/Banner";
 import Footer from "@/components/footer";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "react-hot-toast";
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -21,12 +22,13 @@ export default function RootLayout({ children }) {
       className={`${josefin.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar/>
-       
+        <Navbar />
+
         <main>
           {children}
         </main>
-        <Footer/>
+        <Footer />
+        <Toaster />
       </body>
     </html>
   );

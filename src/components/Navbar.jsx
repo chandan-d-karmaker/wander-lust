@@ -22,7 +22,7 @@ const Navbar = () => {
                 <ul className='flex gap-4'>
                     <li><Link href={'/'}>Home</Link></li>
                     <li><Link href={'/destinations'}>Destination</Link></li>
-                    <li><Link href={'/booking'}>My Bookings</Link></li>
+                    <li><Link href={'/my-bookings'}>My Bookings</Link></li>
                     <li><Link href={'/add-destination'}>Add Destination</Link></li>
                 </ul>
 
