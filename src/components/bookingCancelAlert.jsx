@@ -3,24 +3,24 @@
 import { AlertDialog, Button } from "@heroui/react";
 import { FaRegTrashAlt } from "react-icons/fa";
 
-export function BookingCancelAlert({bookingId}) {
+export function BookingCancelAlert({ bookingId }) {
 
 
-    const handleCancelBooking = async() =>{
+  const handleCancelBooking = async () => {
 
-        const res = await fetch(`http://localhost:5000/booking/${bookingId}`, {
-            method: "DELETE",
-            headers: {
-                "content-type": "application/json"
-            }
-        })
+    const res = await fetch(`http://localhost:5000/booking/${bookingId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json"
+      }
+    })
 
-        const data = await res.json();
+    const data = await res.json();
 
-        window.location.reload();
+    window.location.reload();
 
-        
-    }
+
+  }
 
 
   return (
@@ -34,7 +34,7 @@ export function BookingCancelAlert({bookingId}) {
 
       <AlertDialog.Backdrop>
         <AlertDialog.Container>
-          <AlertDialog.Dialog className="sm:max-w-[400px]">
+          <AlertDialog.Dialog className="sm:max-w-100">
             <AlertDialog.CloseTrigger />
             <AlertDialog.Header>
               <AlertDialog.Icon status="danger" />

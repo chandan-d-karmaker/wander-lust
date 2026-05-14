@@ -27,7 +27,7 @@ const MyBookingPage = async () => {
             <div>
               <h1 className="font-bold text-2xl">{booking.destinationName}</h1>
               <p>
-                {new Date(booking.departureDate).toLocaleDateString("en-US", {
+                {new Date(booking.DepartureDate).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
