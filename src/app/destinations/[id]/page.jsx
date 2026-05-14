@@ -10,14 +10,20 @@ import { EditModal } from '@/components/EditModal';
 import { DeleteAlert } from '@/components/DeleteAlert';
 import BookingCard from '@/components/BookingCard';
 import { headers } from 'next/headers';
+import { auth } from '@/lib/auth';
 
 
 const DestinationDetailsPage = async ({ params }) => {
 
     const { id } = await params;
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+
+    // console.log(token)
     const res = await fetch(`http://localhost:5000/destination/${id}`, {
         headers: {
-            authorization: 'logged in'
+            authorization: `Bearer ${token}`
         }
     });
     const destination = await res.json();
