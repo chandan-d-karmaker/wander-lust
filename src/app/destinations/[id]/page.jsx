@@ -9,12 +9,17 @@ import { FaArrowLeft } from "react-icons/fa";
 import { EditModal } from '@/components/EditModal';
 import { DeleteAlert } from '@/components/DeleteAlert';
 import BookingCard from '@/components/BookingCard';
+import { headers } from 'next/headers';
 
 
 const DestinationDetailsPage = async ({ params }) => {
 
     const { id } = await params;
-    const res = await fetch(`http://localhost:5000/destination/${id}`);
+    const res = await fetch(`http://localhost:5000/destination/${id}`, {
+        headers: {
+            authorization: 'logged in'
+        }
+    });
     const destination = await res.json();
     const { imageUrl, price, destinationName, duration, country, description } = destination;
     // console.log(destination);
